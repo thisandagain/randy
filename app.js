@@ -8,22 +8,49 @@
 /**
  * Dependencies
  */
+var async   = require('async'),
+    redis   = require('redis');
+
 var randy   = require('./lib/index.js');
 
 /**
  * Setup
  */
-var redis   = {};
-var port    = process.env.PORT || 80;
+var client  = redis.createClient();
 
 /**
- * Subscribe to datastore & start listening
+ * Server
  */
-randy.subscribe(redis, function (err, obj) {
+async.auto({
+
+    // Connect to redis
+    // ------------------------------------------
+    connect:    function (callback) {
+        var client = redis.createClient();
+        randy.connect(client, callback);
+    },
+
+    // Channel subscriptions
+    // ------------------------------------------
+    global:     ['connect', function (callback) {
+        randy.subscribe('global', callback);
+    }],
+
+    makers:     ['connect', function (callback) {
+        randy.subscribe('makers', callback);
+    }],
+
+    parents:    ['connect', function (callback) {
+        randy.subscribe('parents', callback);
+    }]
+
+}, function (err, obj) {
     if (err) {
         throw new Error(err);
     } else {
+        var port = process.env.PORT || 80;
         randy.listen(port);
+
         console.log('Randy is listening on port', port);
     }
 });

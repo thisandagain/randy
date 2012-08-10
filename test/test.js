@@ -9,7 +9,7 @@
  * Dependencies
  */
 var async   = require('async'),
-    test    = require('tap').text;
+    test    = require('tap').test,
 
     target  = require(__dirname + '/../lib/index.js');
 
@@ -18,19 +18,19 @@ var async   = require('async'),
  */
 async.auto({
 
-    emit:  function (callback) {
-        target.emit(callback);
+    subscribe:  function (callback) {
+        target.subscribe(null, callback);
     },
 
-    test:   ['emit', function (callback, obj) {
+    test:   ['subscribe', function (callback, obj) {
         test("Component definition", function (t) {
             t.type(target, "object", "Component should be an object");
-            t.type(target.emit, "function", "Method should be a function");
+            t.type(target.subscribe, "function", "Method should be a function");
             t.end();
         });
 
-        test("emit method", function (t) {
-            t.type(obj.all, "object", "Results should be an object");
+        test("subscribe method", function (t) {
+            //t.type(obj.all, "object", "Results should be an object");
             t.end();
         });
 

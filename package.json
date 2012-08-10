@@ -10,10 +10,11 @@
   "dependencies": {
     "async": "0.1.X",
     "underscore": "1.3.X",
+    "redis": "0.7.X",
     "socket.io": "0.9.X"
   },
   "devDependencies": {
-    "tap": "0.3.X",
+    "tap": "0.3.X"
   },
   "optionalDependencies": {},
   "engines": {
