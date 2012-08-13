@@ -1,5 +1,5 @@
 /**
- * Randy is a country singer that sends notifications, drives a Trans Am, and is one serious bad ass.
+ * Notifications system server front-end.
  *
  * @package randy
  * @author Andrew Sliwinski <andrew@diy.org>
@@ -9,48 +9,38 @@
  * Dependencies
  */
 var async   = require('async'),
-    redis   = require('redis');
-
-var randy   = require('./lib/index.js');
-
-/**
- * Setup
- */
-var client  = redis.createClient();
+    randy   = require('./lib/index.js');
 
 /**
  * Server
  */
 async.auto({
 
-    // Connect to redis
+    // Start listening
     // ------------------------------------------
-    connect:    function (callback) {
-        var client = redis.createClient();
-        randy.connect(client, callback);
-    },
-
-    // Channel subscriptions
-    // ------------------------------------------
-    global:     ['connect', function (callback) {
-        randy.subscribe('global', callback);
-    }],
-
-    makers:     ['connect', function (callback) {
-        randy.subscribe('makers', callback);
-    }],
-
-    parents:    ['connect', function (callback) {
-        randy.subscribe('parents', callback);
-    }]
+    listen:     function (callback) {
+        var port = process.env.PORT || 80;
+        randy.listen(port, function (err) {
+            if (err) {
+                callback(err);
+            } else {
+                console.log('Randy is listening on port', port);
+                callback(null);
+            }
+        });
+    }
 
 }, function (err, obj) {
     if (err) {
         throw new Error(err);
-    } else {
-        var port = process.env.PORT || 80;
-        randy.listen(port);
-
-        console.log('Randy is listening on port', port);
     }
+});
+
+/**
+ * Process exit handler
+ */
+process.on('exit', function () {
+    randy.destroy(function (err) {
+        process.exit();
+    });
 });
