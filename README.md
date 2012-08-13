@@ -21,7 +21,7 @@ randy.register({
 });
 ```
 
-Optionally, both a target and the `persist` flag can be specified to send a notification to a single user that will require the "dismiss" action:
+Optionally, both a `target` and the `persist` flag can be specified to send a notification to a single user and/or require a `dismiss` action:
 ```javascript
 var randy   = require('randy');
 randy.register({
