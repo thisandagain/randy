@@ -37,19 +37,20 @@ randy.register({
 The client side is vanilla [socket.io](http://socket.io/) and only requires handling of three actions (register, notice, and dismiss). For example:
 
 ```javascript
-var socket = io.connect('//localhost');
+var socket  = io.connect('//localhost');
+var user    = 'test::user1234';
 
 // Emit the "register" event with a unique user id and type (optional).
-socket.emit('register', {
-    id:     'user1234',
-    type:   'guest'
-});
+socket.emit('register', user);
 
 // If a notice is received, display it!
 socket.on('notice', function (notice) {
     alert(JSON.stringify(notice));
 
     // In order to remove a persistent notice, you need to emit the "dismiss" action
-    socket.emit('dismiss', notice.id);
+    socket.emit('dismiss', {
+        id:     notice.id,
+        uid:    user
+    });
 });
 ```
