@@ -45,7 +45,7 @@ socket.emit('register', {
     type:   'guest'
 });
 
-// If a notice is recieved, display it!
+// If a notice is received, display it!
 socket.on('notice', function (notice) {
     alert(JSON.stringify(notice));
 
