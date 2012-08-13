@@ -10,11 +10,11 @@ randy.listen(port, function (err) {
 });
 ```
 
-### Registering A Notification
+### Submitting A Notification
 A minimal notification is just simply a message that will be emitted immediately to all users and will not require a "dismiss" action:
 ```javascript
 var randy   = require('randy');
-randy.register({
+randy.submit({
     message:    'Shout it from the rooftops!'
 }, function (err) {
     // Heeeeeee hawwwwwwww! 
@@ -24,7 +24,7 @@ randy.register({
 Optionally, both a `target` and the `persist` flag can be specified to send a notification to a single user and/or require a `dismiss` action:
 ```javascript
 var randy   = require('randy');
-randy.register({
+randy.submit({
     message:    'Psst. Hey... wanna party?',
     target:     'guest::user1234',
     persist:    true
@@ -53,4 +53,31 @@ socket.on('notice', function (notice) {
         uid:    user
     });
 });
+```
+
+Notices follow a very simple convention allowing for arbitrary extension through the "message" object:
+```json
+{
+    "id": "beb62c35-252e-44ec-9083-fd44a1e51a9f",
+    "stamp": "2012-08-13T15:06:40.097Z",
+    "persist": "false",
+    "target": "test::1234",
+    "message": "Hello World"
+}
+```
+
+```json
+{
+    "id": "beb62c35-252e-44ec-9083-fd44a1e51a9f",
+    "stamp": "2012-08-13T15:06:40.097Z",
+    "persist": "false",
+    "target": "test::1234",
+    "message": {
+        "foo": "bar",
+        "nyan": "cat",
+        "country": {
+            "music": "rules"
+        }
+    }
+}
 ```
