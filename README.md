@@ -5,8 +5,19 @@
 Randy setup is rather simple. To get a notifications server up and running simply:
 ```javascript
 var randy   = require('randy');
-randy.listen(port, function (err) {
+randy.listen(80, function (err) {
     // Let's do this!
+});
+```
+
+Optionally, you can pass in Redis connection settings (see Matt Ranney's [Redis](https://github.com/mranney/node_redis) module for details):
+```javascript
+var randy   = require('randy');
+randy.listen(80, {
+    host:   '127.0.0.1',
+    port:   3333
+}, function (err) {
+    // I'll shoot you with my invisible gun!
 });
 ```
 
