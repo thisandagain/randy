@@ -55,6 +55,7 @@ socket.on('notice', function (notice) {
 });
 ```
 
+### Notice Model
 Notices follow a very simple convention allowing for arbitrary extension through the "message" object:
 ```json
 {
