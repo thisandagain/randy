@@ -17,7 +17,7 @@ var _       = require('underscore'),
  */
 async.auto({
 
-    // Defaults
+    // Environment defaults
     // ------------------------------------------
     defaults:   function (callback) {
         _.defaults(process.env, {
@@ -33,7 +33,11 @@ async.auto({
     // Start listening
     // ------------------------------------------
     listen:     ['defaults', function (callback) {
-        randy.listen(process.env.PORT, function (err) {
+        randy.listen(process.env.PORT, {
+            host: process.env.REDIS_HOST,
+            port: process.env.REDIS_PORT,
+            pass: process.env.REDIS_PASS
+        }, function (err) {
             if (err) {
                 callback(err);
             } else {
