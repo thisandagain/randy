@@ -27,8 +27,8 @@ $(document).ready(function() {
     /**
      * Socket.io events
      */
-    //var socket = io.connect('//localhost:80');
-    var socket = io.connect('//randy.jit.su:80');
+    var socket = io.connect('//localhost:80');
+    //var socket = io.connect('//randy.jit.su:80');
     socket.emit('register', user);
 
     socket.on('notice', function (data) {
@@ -37,7 +37,7 @@ $(document).ready(function() {
         $activity.find('p').first().prepend('<a href="#" class="read" id="' + data.id + '">Read</a>&nbsp;');
     
         if (data.read) {
-            $activity.find('p').css('opacity', '0.5');
+            $activity.find('p').first().css('opacity', '0.5');
         }
     });
 
