@@ -6,7 +6,7 @@
     "randy.diy.org"
   ],
   "description": "Randy is a country singer that sends notifications, drives a Trans Am, and is one serious bad ass.",
-  "version": "0.1.0-10",
+  "version": "0.1.0-11",
   "main": "lib/index.js",
   "scripts": {
     "start": "app.js",
