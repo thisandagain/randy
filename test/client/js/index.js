@@ -32,9 +32,7 @@ $(document).ready(function() {
 
     socket.on('notice', function (data) {
         $activity.prepend('<p>' + JSON.stringify(data) + '</p>');
-        if (data.persist) {
-            $activity.find('p').first().prepend('<a href="#" class="dismiss" id="' + data.id + '">Dismiss</a>&nbsp;')
-        }
+        $activity.find('p').first().prepend('<a href="#" class="dismiss" id="' + data.id + '">Dismiss</a>&nbsp;');
     });
 
     /**

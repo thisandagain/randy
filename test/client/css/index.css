@@ -58,7 +58,6 @@ input {
 
 #activity {
     height: 600px;
-    overflow-y: scroll;
 }
 
 #activity p {
