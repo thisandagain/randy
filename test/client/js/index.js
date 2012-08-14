@@ -27,7 +27,8 @@ $(document).ready(function() {
     /**
      * Socket.io events
      */
-    var socket = io.connect('//localhost:80');
+    //var socket = io.connect('//localhost:80');
+    var socket = io.connect('//randy.jit.su:80');
     socket.emit('register', user);
 
     socket.on('notice', function (data) {
