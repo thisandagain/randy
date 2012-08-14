@@ -60,6 +60,12 @@ socket.emit('register', user);
 socket.on('notice', function (notice) {
     alert(JSON.stringify(notice));
 
+    // You can flag a persistent notice as "read", by emitting the "read" action
+    socket.emit('read', {
+        id:     notice.id,
+        uid:    user
+    });
+
     // In order to remove a persistent notice, you need to emit the "dismiss" action
     socket.emit('dismiss', {
         id:     notice.id,
