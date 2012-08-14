@@ -1,10 +1,12 @@
 {
   "author": "DIY Co <https://diy.org>",
   "name": "randy",
+  "subdomain": "randy",
   "description": "Randy is a country singer that sends notifications, drives a Trans Am, and is one serious bad ass.",
   "version": "0.1.0",
   "main": "lib/index.js",
   "scripts": {
+    "start": "app.js",
     "test": "tap test/*.js"
   },
   "dependencies": {
@@ -19,6 +21,6 @@
   },
   "optionalDependencies": {},
   "engines": {
-    "node": "*"
+    "node": ">=0.8"
   }
 }
