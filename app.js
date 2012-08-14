@@ -8,7 +8,8 @@
 /**
  * Dependencies
  */
-var async   = require('async'),
+var _       = require('underscore'),
+    async   = require('async'),
     randy   = require('./lib/index.js');
 
 /**
@@ -16,19 +17,31 @@ var async   = require('async'),
  */
 async.auto({
 
+    // Defaults
+    // ------------------------------------------
+    defaults:   function (callback) {
+        _.defaults(process.env, {
+            PORT:       80,
+            REDIS_HOST: null,
+            REDIS_PORT: null,
+            REDIS_PASS: null
+        });
+
+        callback();
+    },
+
     // Start listening
     // ------------------------------------------
-    listen:     function (callback) {
-        var port = process.env.PORT || 80;
-        randy.listen(port, function (err) {
+    listen:     ['defaults', function (callback) {
+        randy.listen(process.env.PORT, function (err) {
             if (err) {
                 callback(err);
             } else {
-                console.log('Randy is listening on port', port);
+                console.log('Randy is listening on port', process.env.PORT);
                 callback(null);
             }
         });
-    }
+    }]
 
 }, function (err, obj) {
     if (err) {
