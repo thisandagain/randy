@@ -16,6 +16,7 @@ var randy   = require('randy');
 randy.listen(80, {
     port:       3333,
     host:       '127.0.0.1',
+    pass:       'wildturkey',
     options:    null
 }, function (err) {
     // I'll shoot you with my invisible gun!
