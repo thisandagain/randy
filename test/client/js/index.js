@@ -23,7 +23,7 @@ $(document).ready(function() {
         user        = 'test::' + Math.floor(Math.random()*99999);
     }
     $user.html(user);
-    $('#target').val(user);
+    $('#input-target').val(user);
 
     /**
      * Socket.io events
