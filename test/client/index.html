@@ -15,24 +15,32 @@
 
                 <form>
                     <p>
-                        Persist:
-                        <select id="persist">
+                        <label for="input-persist">Persist:</label>
+                        <select id="input-persist">
                             <option value="false">False</option>
                             <option value="true">True</option>
                         </select>
                     </p>
 
                     <p>
-                        Target:
-                        <input id="target" type="text" placeholder="" />
+                        <label for="input-target">Target:</label>
+                        <input id="input-target" type="text" placeholder="" />
                     </p>
 
                     <p>
-                        Message:
-                        <input id="message" type="text" placeholder="" />
+                        <label for="input-message">Message:</label>
+                        <textarea id="input-message" placeholder="{&quot;greeting&quot;: &quot;Howdy&quot;}"></textarea>
                     </p>
 
-                    <button type="submit">Submit</button>
+					<p>
+						<input type="checkbox" checked="checked" id="input-json">
+						<label for="input-json" class="for-checkbox">Is JSON</label>
+					</p>
+
+					<div class="form-actions">
+                    	<button type="submit">Submit</button>
+						<span id="message-sent" style="display:none">Message sent!</span>
+					</div>
                 </form>
             </div>
 
