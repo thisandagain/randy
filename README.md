@@ -101,3 +101,18 @@ Notices follow a very simple convention allowing for arbitrary extension through
     }
 }
 ```
+
+---
+
+### Methods
+- listen (party)
+- submit (beerme)
+- destroy (passout)
+
+### Socket.io Actions (Incoming)
+- notice
+
+### Socket.io Actions (Outgoing)
+- register
+- read
+- dismiss
