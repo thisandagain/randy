@@ -80,6 +80,7 @@ Notices follow a very simple convention allowing for arbitrary extension through
 {
     "id": "beb62c35-252e-44ec-9083-fd44a1e51a9f",
     "stamp": "2012-08-13T15:06:40.097Z",
+    "read": false,
     "persist": false,
     "target": "test::1234",
     "message": "Hello World"
@@ -90,6 +91,7 @@ Notices follow a very simple convention allowing for arbitrary extension through
 {
     "id": "beb62c35-252e-44ec-9083-fd44a1e51a9f",
     "stamp": "2012-08-13T15:06:40.097Z",
+    "read": true,
     "persist": false,
     "target": "test::1234",
     "message": {
