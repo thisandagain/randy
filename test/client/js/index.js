@@ -13,7 +13,7 @@ $(document).ready(function() {
     var $user       = $('#user', '#base');
     var $actions    = $('#actions', '#base');
     var $activity   = $('#activity', '#notifications');
-	var $notice     = $('#message-sent');
+    var $notice     = $('#message-sent');
 
     /**
      * Generate unique (random) user id
@@ -48,27 +48,27 @@ $(document).ready(function() {
     $('button').click(function (e) {
         e.preventDefault();
         
-		var notice = {
+        var notice = {
             persist:    $('#input-persist').val(),
             target:     $('#input-target').val(),
             message:    $('#input-message').val()
         };
 
-		if ($('#input-json').is(':checked')) {
-			try {
-				notice.message = JSON.parse(notice.message);
-			} catch (e) {
-				alert('Hold up, partner. Your message must be valid JSON.');
-				return;
-			}
-		}
+        if ($('#input-json').is(':checked')) {
+            try {
+                notice.message = JSON.parse(notice.message);
+            } catch (e) {
+                alert('Hold up, partner. Your message must be valid JSON.');
+                return;
+            }
+        }
 
         socket.emit('loopback', notice);
 
-		$notice.stop().css({opacity: 1}).html('Message sent!').show();
-		window.setTimeout(function() {
-			$notice.stop().animate({opacity: 0}, 2000);
-		}, 5000);
+        $notice.stop().css({opacity: 1}).html('Message sent!').show();
+        window.setTimeout(function() {
+            $notice.stop().animate({opacity: 0}, 2000);
+        }, 5000);
     });
 
     $('a.read').live('click', function (e) {
