@@ -1,5 +1,12 @@
 ## Randy
-### Randy is a country singer that sends notifications, drives a Trans Am, and will shoot you with his invisble gun.
+#### Randy is a country singer that sends notifications, drives a Trans Am, and will shoot you with his invisble gun.
+
+[![Build Status](https://secure.travis-ci.org/thisandagain/randy.png?branch=master)](http://travis-ci.org/thisandagain/randy)
+
+### Installation
+```bash
+npm install randy
+```
 
 ### Server Setup
 Randy setup is rather simple. To get a notifications server up and running simply:
