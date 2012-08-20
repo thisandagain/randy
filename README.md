@@ -1,5 +1,5 @@
 ## Randy
-#### Randy is a country singer that sends notifications, drives a Trans Am, and is one serious bad ass.
+### Randy is a country singer that sends notifications, drives a Trans Am, and will shoot you with his invisble gun.
 
 ### Server Setup
 Randy setup is rather simple. To get a notifications server up and running simply:
@@ -19,7 +19,7 @@ randy.listen(80, {
     pass:       'wildturkey',
     options:    null
 }, function (err) {
-    // I'll shoot you with my invisible gun!
+    // Jump the general lee off a cliff
 });
 ```
 
@@ -30,7 +30,7 @@ var randy   = require('randy');
 randy.submit({
     message:    'Shout it from the rooftops!'
 }, function (err) {
-    // Heeeeeee hawwwwwwww! 
+    // Yeeeeeee hawwwwwwww! 
 });
 ```
 
@@ -42,12 +42,12 @@ randy.submit({
     target:     'guest::user1234',
     persist:    true
 }, function (err) {
-    // Heeeeeee hawwwwwwww! 
+    // Trans Am! 
 });
 ```
 
 ### Client Setup
-The client side is vanilla [socket.io](http://socket.io/) and only requires handling of three actions (register, notice, and dismiss). For example:
+The client side is vanilla [socket.io](http://socket.io/) and only requires handling of three actions: `register`, `notice`, and `dismiss` (and `read` optionally). For example:
 
 ```javascript
 var socket  = io.connect('//localhost');
@@ -107,14 +107,19 @@ Notices follow a very simple convention allowing for arbitrary extension through
 ---
 
 ### Methods
-- listen (party)
-- submit (beerme)
-- destroy (passout)
+- `listen`
+- `submit`
+- `destroy`
+
+### Party Methods
+- `party` (listen)
+- `beerme` (submit)
+- `passout` (destroy)
 
 ### Socket.io Actions (Incoming)
-- notice
+- `notice`
 
 ### Socket.io Actions (Outgoing)
-- register
-- read
-- dismiss
+- `register`
+- `read`
+- `dismiss`
