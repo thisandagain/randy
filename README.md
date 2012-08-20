@@ -5,13 +5,13 @@
 
 ### Installation
 ```bash
-npm install randy
+npm install node-randy
 ```
 
 ### Server Setup
 Randy setup is rather simple. To get a notifications server up and running simply:
 ```javascript
-var randy   = require('randy');
+var randy   = require('node-randy');
 randy.listen(80, function (err) {
     // Let's do this!
 });
@@ -19,7 +19,7 @@ randy.listen(80, function (err) {
 
 Optionally, you can pass in Redis connection settings (see Matt Ranney's [Redis](https://github.com/mranney/node_redis) module for details):
 ```javascript
-var randy   = require('randy');
+var randy   = require('node-randy');
 randy.listen(80, {
     port:       3333,
     host:       '127.0.0.1',
@@ -33,7 +33,7 @@ randy.listen(80, {
 ### Submitting A Notification
 A minimal notification is just simply a message that will be emitted immediately to all users and will not require a "dismiss" action:
 ```javascript
-var randy   = require('randy');
+var randy   = require('node-randy');
 randy.submit({
     message:    'Shout it from the rooftops!'
 }, function (err) {
@@ -43,7 +43,7 @@ randy.submit({
 
 Optionally, both a `target` and the `persist` flag can be specified to send a notification to a single user and/or require a `dismiss` action:
 ```javascript
-var randy   = require('randy');
+var randy   = require('node-randy');
 randy.submit({
     message:    'Psst. Hey... wanna party?',
     target:     'guest::user1234',

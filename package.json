@@ -1,6 +1,6 @@
 {
   "author": "DIY Co <https://diy.org>",
-  "name": "randy",
+  "name": "node-randy",
   "description": "Randy is a country singer that sends notifications, drives a Trans Am, and will shoot you with his invisble gun.",
   "version": "0.1.0",
   "main": "lib/index.js",
