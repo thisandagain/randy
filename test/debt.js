@@ -1,7 +1,7 @@
 /**
  * Unit test suite.
  *
- * @package API
+ * @package randy
  * @author Andrew Sliwinski <andrew@diy.org>
  */
 
@@ -22,9 +22,7 @@ async.auto({
     },
 
     test:       ['debt', function (callback, obj) {
-
         test("Debt", function (t) {
-            console.log(obj.debt);
             t.type(obj.debt, "number", "Results should be a number");
             t.ok(obj.debt > -1, "Total should be greater than -1");
             t.end();
