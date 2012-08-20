@@ -130,3 +130,10 @@ Notices follow a very simple convention allowing for arbitrary extension through
 - `register`
 - `read`
 - `dismiss`
+
+---
+
+### To Test
+```bash
+npm test
+```
