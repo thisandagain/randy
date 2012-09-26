@@ -1,5 +1,5 @@
 ## Randy
-#### Randy is a country singer that sends notifications, drives a Trans Am, and will shoot you with his invisble gun.
+#### Socket.io based realtime notifications with [Rodeo](https://github.com/thisandagain/rodeo).
 
 [![Build Status](https://secure.travis-ci.org/thisandagain/randy.png?branch=master)](http://travis-ci.org/thisandagain/randy)
 
@@ -27,29 +27,6 @@ randy.listen(80, {
     options:    null
 }, function (err) {
     // Jump the general lee off a cliff
-});
-```
-
-### Submitting A Notification
-A minimal notification is just simply a message that will be emitted immediately to all users and will not require a "dismiss" action:
-```javascript
-var randy   = require('node-randy');
-randy.submit({
-    message:    'Shout it from the rooftops!'
-}, function (err) {
-    // Yeeeeeee hawwwwwwww! 
-});
-```
-
-Optionally, both a `target` and the `persist` flag can be specified to send a notification to a single user and/or require a `dismiss` action:
-```javascript
-var randy   = require('node-randy');
-randy.submit({
-    message:    'Psst. Hey... wanna party?',
-    target:     'guest::user1234',
-    persist:    true
-}, function (err) {
-    // Trans Am! 
 });
 ```
 
@@ -81,47 +58,10 @@ socket.on('notice', function (notice) {
 });
 ```
 
-### Notice Model
-Notices follow a very simple convention allowing for arbitrary extension through the "message" object:
-```json
-{
-    "id": "beb62c35-252e-44ec-9083-fd44a1e51a9f",
-    "stamp": "2012-08-13T15:06:40.097Z",
-    "read": false,
-    "persist": false,
-    "target": "test::1234",
-    "message": "Hello World"
-}
-```
-
-```json
-{
-    "id": "beb62c35-252e-44ec-9083-fd44a1e51a9f",
-    "stamp": "2012-08-13T15:06:40.097Z",
-    "read": true,
-    "persist": false,
-    "target": "test::1234",
-    "message": {
-        "foo": "bar",
-        "nyan": "cat",
-        "country": {
-            "music": "rules"
-        }
-    }
-}
-```
-
 ---
 
 ### Methods
 - `listen`
-- `submit`
-- `destroy`
-
-### Party Methods
-- `party` (listen)
-- `beerme` (submit)
-- `passout` (destroy)
 
 ### Socket.io Actions (Incoming)
 - `notice`
