@@ -3,14 +3,14 @@
   "email": "andrewsliwinski@acm.org",
   "name": "node-randy",
   "description": "Socket.io based realtime notifications with Rodeo.",
-  "version": "0.2.2",
+  "version": "0.2.3",
   "main": "lib/index.js",
   "scripts": {
     "test": "tap test/*.js"
   },
   "dependencies": {
-    "socket.io": "0.9.X",
-    "rodeo": "0.1.X"
+    "socket.io": "~0.9.16",
+    "rodeo": "~0.2.0"
   },
   "devDependencies": {
     "async": "0.1.X",
